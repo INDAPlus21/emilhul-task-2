@@ -19,11 +19,11 @@ fn main() {                                                 // Kattis calls main
         .next().unwrap()
         .parse::<usize>().unwrap();
     
-    eprintln!("The number n is {}", number_n);
+    //eprintln!("The number n is {}", number_n);
     
     let numbers_to_sum = (number_n + 1)/2;
 
-    eprintln!("Ammount of numbers to sum {}", numbers_to_sum);
+    //eprintln!("Ammount of numbers to sum {}", numbers_to_sum);
 
     let mut numbers = lines
         .next().unwrap()
@@ -33,10 +33,14 @@ fn main() {                                                 // Kattis calls main
 
     numbers.sort();
 
-    
-    for number in numbers_to_sum..number_n {
+    let mut sum = 0;
 
-        eprintln!("Numbers {}", &numbers[number])
-
+    for number in numbers_to_sum-1..number_n {
+        //eprintln!("Sum is: {}", sum);
+        sum += numbers[number];
+        //eprintln!("Number added: {}", numbers[number]);
     }
+    
+    println!("{}", sum)
+    //eprintln!("The sum is: {}", sum);
 }
