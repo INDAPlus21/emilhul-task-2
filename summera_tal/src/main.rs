@@ -1,46 +1,30 @@
-/***
- * Template to a Kattis solution.
- * See: https://open.kattis.com/help/rust
- * Author: Viola Söderlund <violaso@kth.se>
- */
-
 use std::io;
 use std::io::prelude::*;
 
 fn main() {                                                 // Kattis calls main function to run your solution.
     let input = io::stdin();                                // get standard input stream                                                         
-                                                            
-    let mut lines = input                                   // get input lines as strings
-        .lock()                                             // see: https://doc.rust-lang.org/std/io/trait.BufRead.html
-        .lines()
-        .map(|_line| _line.ok().unwrap());
     
-    let number_n = lines
-        .next().unwrap()
-        .parse::<usize>().unwrap();
+    let mut numbers: Vec<usize> = input
+        .lock()
+        .lines()   
+        .skip(1) // read only number line
+        .next().unwrap().ok().unwrap()
+        .split_whitespace()
+        .map(|_number| _number.parse::<usize>().ok().unwrap())
+        .collect();
     
-    //eprintln!("The number n is {}", number_n);
-    
-    let numbers_to_sum = (number_n + 1)/2;
+    let _n = numbers.len();
 
-    //eprintln!("Ammount of numbers to sum {}", numbers_to_sum);
+    if _n == 0 {
+        println!("0");
+    } else if _n > 0 {
+        let to_sum = (_n+1)/2;
+        numbers.sort();
 
-    let mut numbers = lines
-        .next().unwrap()
-        .split(" ")
-        .map(|x| x.parse::<u32>().unwrap())
-        .collect::<Vec<u32>>();
-
-    numbers.sort();
-
-    let mut sum = 0;
-
-    for number in numbers_to_sum-1..number_n {
-        //eprintln!("Sum is: {}", sum);
-        sum += numbers[number];
-        //eprintln!("Number added: {}", numbers[number]);
+        let big_half = &numbers[(_n-to_sum)..];
+        let sum: usize = big_half.iter().sum();
+        println!("{}", sum);
+    } else {
+        println!("0");
     }
-    
-    println!("{}", sum)
-    //eprintln!("The sum is: {}", sum);
 }
