@@ -1,8 +1,8 @@
 use std::io;
 use std::io::prelude::*;
 use std::cmp;
-                                                            //
-fn convert(num: &usize) -> &str {                           // a function that matches the distance numerical value to a string
+
+fn convert(num: &usize) -> &str {                                                       // a function that matches the distance numerical value to a string
     match num {
         1 => "1",
         2 => "2",
