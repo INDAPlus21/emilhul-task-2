@@ -12,7 +12,7 @@ fn main() {
         .split_whitespace()
         .map(|_number| _number.parse::<usize>().ok().unwrap())
         .collect::<Vec<usize>>();                               // collect the numbers into a vector.
-    
+                                                                    
     let _n = numbers.len();                                     
 
     if _n == 0 {
