@@ -1,6 +1,6 @@
-# emilhul-task-2
+# Simple Rust functions by Emil Hultcrantz
 
-The tasks solved are:
+Proposed solutions to the Kattis problems:
 
-* Summera tal
-* Avstand till kant
+* [Summera tal](https://kth.kattis.com/problems/kth.javap.sumsort)
+* [Avstand till kant](https://kth.kattis.com/problems/kth.javap.kant)
